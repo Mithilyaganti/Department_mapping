@@ -3,10 +3,10 @@ import os
 from dotenv import load_dotenv, dotenv_values 
 load_dotenv()
 from desc import desc_keywords
-from image_desc import img_keywords
-from departments import mapping
+from desc import img_keywords
+from desc import mapping
 
-genai.configure(api_key=os.getenv("gemini_api"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 import PIL.Image
 
@@ -41,3 +41,5 @@ def departments(image_path,text):
     keys=img_desc_keywords(image_path,text)
     dept=mapping(keys)
     return dept
+
+print(departments("keywords\eady.jpeg","a BROKEN RAIL TRACK"))
